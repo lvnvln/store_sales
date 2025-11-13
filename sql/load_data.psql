@@ -1,0 +1,26 @@
+
+--  LOAD DATA USING \copy (client-side)
+
+-- TRAIN
+TRUNCATE TABLE store_sales.train;
+\copy store_sales.train (id, date, store_nbr, family, sales, onpromotion) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/train.csv' DELIMITER ',' CSV HEADER;
+
+-- TEST
+TRUNCATE TABLE store_sales.test;
+\copy store_sales.test (id, date, store_nbr, family, onpromotion) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/test.csv' DELIMITER ',' CSV HEADER;
+
+-- STORES
+TRUNCATE TABLE store_sales.stores;
+\copy store_sales.stores (store_nbr, city, state, type, cluster) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/stores.csv' DELIMITER ',' CSV HEADER;
+
+-- TRANSACTIONS
+TRUNCATE TABLE store_sales.transactions;
+\copy store_sales.transactions (date, store_nbr, transactions) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/transactions.csv' DELIMITER ',' CSV HEADER;
+
+-- OIL
+TRUNCATE TABLE store_sales.oil;
+\copy store_sales.oil (date, dcoilwtico) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/oil.csv' DELIMITER ',' CSV HEADER;
+
+-- HOLIDAYS_EVENTS
+TRUNCATE TABLE store_sales.holidays_events;
+\copy store_sales.holidays_events (date, type, locale, locale_name, description, transferred) FROM 'C:/Users/Polina/Desktop/bot/store_sales/data/holidays_events.csv' DELIMITER ',' CSV HEADER;
